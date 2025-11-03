@@ -6,10 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Installation de graphviz
-        run: sudo apt install -y graphviz
+        run: |
+          sudo apt update
+          sudo apt install -y graphviz
 
       - name: Check out repository code
         uses: actions/checkout@v3
+
+      - name: Rendre exécutable run2.sh
+        run: chmod +x ./run2.sh
 
       - name: Lancement graphviz (tous les fichiers)
         run: ./run2.sh
