@@ -14,3 +14,9 @@ jobs:
       - name: Lancement graphviz
         run: ./run1.sh g1
 
+      - name: Upload du resultat
+        uses: actions/upload-artifact@v4
+        with:
+          name: g1-svg
+          path: g1.svg
+
