@@ -12,9 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Lancement graphviz (tous les fichiers)
-        run: |
-          chmod +x run2.sh || true
-          ./run2.sh
+        run: ./run2.sh
 
       - name: Upload de tous les SVG
         uses: actions/upload-artifact@v4
