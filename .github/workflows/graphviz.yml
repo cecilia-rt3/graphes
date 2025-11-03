@@ -6,17 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Installation de graphviz
-        run: sudo apt install graphviz -y
+        run: sudo apt install -y graphviz
 
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: Lancement graphviz
-        run: ./run1.sh g1
+      - name: Lancement graphviz (tous les fichiers)
+        run: |
+          chmod +x run2.sh || true
+          ./run2.sh
 
-      - name: Upload du resultat
+      - name: Upload de tous les SVG
         uses: actions/upload-artifact@v4
         with:
-          name: g1-svg
-          path: g1.svg
+          name: graphes-svg
+          path: ./*.svg
 
